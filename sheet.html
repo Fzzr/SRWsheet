@@ -5,90 +5,113 @@
     <label class='sheet-character-personal-info'>Mecha Name: <input type='text' name='attr_mecha_name'></label>
     <label class='sheet-character-personal-info'>Level: <input type='number' name='attr_Level'></label>
   </div>
-  <div class='sheet-row'>
-    <h3>Resources</h3>
-    <div class='sheet-statistic-row'>
-      <div class='sheet-resource-cell'>
-        <label class='sheet-resource-label'>Curr. HP</label>
-        <label class='sheet-resource-label'>/</label>
-        <label class='sheet-resource-label'>Max HP</label>
-      </div>
-      <div class='sheet-resource-cell'>
-        <input value='0' type='number' title='@{HP}' name='attr_HP'></input>
-        <span>/</span>
-        <input readonly type='number' title='@{HP|max}' name='attr_HP_max'></input>
-      </div>
-    </div>
-    <div class='sheet-statistic-row'>
-      <div class='sheet-resource-cell'>
-        <label class='sheet-resource-label'>Curr. Will</label>
-        <label class='sheet-resource-label'>/</label>
-        <label class='sheet-resource-label'>Max Will</label>
-      </div>
-      <div class='sheet-resource-cell'>
-        <input value='0' type='number' title='@{Will}' name='attr_Will'></input>
-        <span>/</span>
-        <input readonly type='number' title='@{Will|max}' name='attr_Will_max'></input>
-      </div>
-    </div>
-    <div class='sheet-statistic-row'>
-      <div class='sheet-resource-cell'>
-        <label class='sheet-resource-label'>Curr. EN</label>
-        <label class='sheet-resource-label'>/</label>
-        <label class='sheet-resource-label'>Max EN</label>
-      </div>
-      <div class='sheet-resource-cell'>
-        <input value='0' type='number' title='@{Energy}' name='attr_Energy'></input>
-        <span>/</span>
-        <input readonly type='number' title='@{Energy|max}' name='attr_Energy_max'></input>
-      </div>
-    </div>
-    <div class='sheet-statistic-row'>
-      <div class='sheet-resource-cell'>
-        <label class='sheet-resource-label'>Curr. SP</label>
-        <label class='sheet-resource-label'>/</label>
-        <label class='sheet-resource-label'>Max SP</label>
-      </div>
-      <div class='sheet-resource-cell'>
-        <input value='0' type='number' title='@{Spirit}' name='attr_Spirit'></input>
-        <span>/</span>
-        <input readonly type='number' title='@{Spirit|max}' name='attr_Spirit_max'></input>
-      </div>
-    </div>
+  <label class='sheet-character-personal-info sheet-type-label'>Character Type: </label>
+  <!-- Cycling toggle button based on:
+    -- https://wiki.roll20.net/CSS_Wizardry#Cycling_Button
+    -- Tab view based on:
+    -- https://wiki.roll20.net/CSS_Wizardry#Tabs
+    -- It is necessary that the '-toggle' <input>s and <span>s be siblings of
+    -- the '-content' <div>s.
+    -->
+  <input type='radio' class='sheet-type-toggle sheet-ace-toggle' name='attr_sheet_type' value='0' checked>
+  <input type='radio' class='sheet-type-toggle sheet-elite-toggle' name='attr_sheet_type' value='1'>
+  <input type='radio' class='sheet-type-toggle sheet-mook-toggle' name='attr_sheet_type' value='2'>
+  <span class='sheet-type-toggle sheet-ace-toggle'>Ace</span>
+  <span class='sheet-type-toggle sheet-elite-toggle'>Elite</span>
+  <span class='sheet-type-toggle sheet-mook-toggle'>Mook</span>
+  <div class='sheet-tab-content sheet-mook'>
+    <h2>Mook</h2>
   </div>
-  <div class=sheet-row>
-    <h3>Attributes</h3>
-    <div class='sheet-statistic-row'>
-      <label class='sheet-attribute-label'>Base HP</label>
-      <input value='0' type='number' title='@{HP_base}' name='attr_HP_base'></input>
+  <div class='sheet-tab-content sheet-elite'>
+    <h2>Elite</h2>
+  </div>
+  <div class='sheet-tab-content sheet-ace'>
+    <h2>Ace</h2>
+    <div class='sheet-row'>
+      <h3>Resources</h3>
+      <div class='sheet-statistic-row'>
+        <div class='sheet-resource-cell'>
+          <label class='sheet-resource-label'>Curr. HP</label>
+          <label class='sheet-resource-label'>/</label>
+          <label class='sheet-resource-label'>Max HP</label>
+        </div>
+        <div class='sheet-resource-cell'>
+          <input value='0' type='number' title='@{HP}' name='attr_HP'></input>
+          <span>/</span>
+          <input readonly type='number' title='@{HP|max}' name='attr_HP_max'></input>
+        </div>
+      </div>
+      <div class='sheet-statistic-row'>
+        <div class='sheet-resource-cell'>
+          <label class='sheet-resource-label'>Curr. Will</label>
+          <label class='sheet-resource-label'>/</label>
+          <label class='sheet-resource-label'>Max Will</label>
+        </div>
+        <div class='sheet-resource-cell'>
+          <input value='0' type='number' title='@{Will}' name='attr_Will'></input>
+          <span>/</span>
+          <input readonly type='number' title='@{Will|max}' name='attr_Will_max'></input>
+        </div>
+      </div>
+      <div class='sheet-statistic-row'>
+        <div class='sheet-resource-cell'>
+          <label class='sheet-resource-label'>Curr. EN</label>
+          <label class='sheet-resource-label'>/</label>
+          <label class='sheet-resource-label'>Max EN</label>
+        </div>
+        <div class='sheet-resource-cell'>
+          <input value='0' type='number' title='@{Energy}' name='attr_Energy'></input>
+          <span>/</span>
+          <input readonly type='number' title='@{Energy|max}' name='attr_Energy_max'></input>
+        </div>
+      </div>
+      <div class='sheet-statistic-row'>
+        <div class='sheet-resource-cell'>
+          <label class='sheet-resource-label'>Curr. SP</label>
+          <label class='sheet-resource-label'>/</label>
+          <label class='sheet-resource-label'>Max SP</label>
+        </div>
+        <div class='sheet-resource-cell'>
+          <input value='0' type='number' title='@{Spirit}' name='attr_Spirit'></input>
+          <span>/</span>
+          <input readonly type='number' title='@{Spirit|max}' name='attr_Spirit_max'></input>
+        </div>
+      </div>
     </div>
-    <div class='sheet-statistic-row'>
-      <label class='sheet-attribute-label'>Base Will</label>
-      <input value='0' type='number' title='@{Will_base}' name='attr_Will_base'></input>
-    </div>
-    <div class='sheet-statistic-row'>
-      <label class='sheet-attribute-label'>Base Energy</label>
-      <input value='0' type='number' title='@{Energy_base}' name='attr_Energy_base'></input>
-    </div>
-    <div class='sheet-statistic-row'>
-      <label class='sheet-attribute-label'>Base Spirit</label>
-      <input value='0' type='number' title='@{Spirit_base}' name='attr_Spirit_base'></input>
-    </div>
-    <div class='sheet-statistic-row'>
-      <label class='sheet-attribute-label'>Armor</label>
-      <input value='0' type='number' title='@{Armor_base}' name='attr_Armor_base'></input>
-    </div>
-    <div class='sheet-statistic-row'>
-      <label class='sheet-attribute-label'>Accuracy</label>
-      <input value='0' type='number' title='@{Accuracy_base}' name='attr_Accuracy_base'></input>
-    </div>
-    <div class='sheet-statistic-row'>
-      <label class='sheet-attribute-label'>Evade</label>
-      <input value='0' type='number' title='@{Evade_base}' name='attr_Evade_base'></input>
-    </div>
-    <div class='sheet-statistic-row'>
-      <label class='sheet-attribute-label'>Skill</label>
-      <input value='0' type='number' title='@{Skill_base}' name='attr_Skill_base'></input>
+    <div class=sheet-row>
+      <h3>Attributes</h3>
+      <div class='sheet-statistic-row'>
+        <label class='sheet-attribute-label'>Base HP</label>
+        <input value='0' type='number' title='@{HP_base}' name='attr_HP_base'></input>
+      </div>
+      <div class='sheet-statistic-row'>
+        <label class='sheet-attribute-label'>Base Will</label>
+        <input value='0' type='number' title='@{Will_base}' name='attr_Will_base'></input>
+      </div>
+      <div class='sheet-statistic-row'>
+        <label class='sheet-attribute-label'>Base Energy</label>
+        <input value='0' type='number' title='@{Energy_base}' name='attr_Energy_base'></input>
+      </div>
+      <div class='sheet-statistic-row'>
+        <label class='sheet-attribute-label'>Base Spirit</label>
+        <input value='0' type='number' title='@{Spirit_base}' name='attr_Spirit_base'></input>
+      </div>
+      <div class='sheet-statistic-row'>
+        <label class='sheet-attribute-label'>Armor</label>
+        <input value='0' type='number' title='@{Armor_base}' name='attr_Armor_base'></input>
+      </div>
+      <div class='sheet-statistic-row'>
+        <label class='sheet-attribute-label'>Accuracy</label>
+        <input value='0' type='number' title='@{Accuracy_base}' name='attr_Accuracy_base'></input>
+      </div>
+      <div class='sheet-statistic-row'>
+        <label class='sheet-attribute-label'>Evade</label>
+        <input value='0' type='number' title='@{Evade_base}' name='attr_Evade_base'></input>
+      </div>
+      <div class='sheet-statistic-row'>
+        <label class='sheet-attribute-label'>Skill</label>
+        <input value='0' type='number' title='@{Skill_base}' name='attr_Skill_base'></input>
+      </div>
     </div>
   </div>
   <span class='sheet-version-number'><input type='string' name='sheet-version-number'></span>

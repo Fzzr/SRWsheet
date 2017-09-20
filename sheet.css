@@ -3,6 +3,44 @@ button[type=roll].sheet-d100-roll-button::before {
   content: 't';
 }
 
+.sheet-type-toggle-container {
+  margin-top: 5px;
+}
+
+div.sheet-type-toggle {
+    width: 195px;
+    height: 30px;
+    position: relative;
+    display: inline;
+}
+
+input.sheet-type-toggle {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    z-index: 1;
+}
+
+span.sheet-type-toggle {
+    margin: 10px 0 0 40px;
+    display: none;
+}
+
+.sheet-tab-content { display: none; }
+
+input.sheet-ace-toggle:checked ~ div.sheet-ace,
+input.sheet-elite-toggle:checked ~ div.sheet-elite,
+input.sheet-mook-toggle:checked ~ div.sheet-mook { display: block; }
+
+input.sheet-ace-toggle { z-index: 2; }
+
+input.sheet-ace-toggle:checked + input.sheet-elite-toggle,
+input.sheet-elite-toggle:checked + input.sheet-mook-toggle { z-index: 3; }
+
+input.sheet-ace-toggle:checked ~ span.sheet-ace-toggle,
+input.sheet-elite-toggle:checked ~ span.sheet-elite-toggle,
+input.sheet-mook-toggle:checked ~ span.sheet-mook-toggle { display: inline-block; }
+
 .sheet-row {
   border: 1px solid;
   margin-top: 5px;
