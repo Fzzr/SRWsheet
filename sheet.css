@@ -1,0 +1,36 @@
+.sheet-row {
+  border: 1px solid;
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.sheet-character-personal-info {
+  display: inline;
+}
+
+.sheet-statistic-row:not(:first-child) {
+  padding-top: 5px;
+}
+
+.sheet-statistic-row:not(:last-child) {
+  border-bottom: 1px solid;
+  padding-bottom: 5px;
+}
+
+.sheet-resource-cell {
+  display: block;
+}
+
+.sheet-resource-label {
+  display: inline;
+  font-size: 1em;
+  padding-right: 0px;
+}
+
+.sheet-attribute-label {
+  display: inline-block;
+}
+
+.sheet-version-number {
+  display: none;
+}
