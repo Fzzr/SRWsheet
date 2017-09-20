@@ -150,12 +150,10 @@ var calculateMaxEnergy = function() {
 
 on('sheet:opened', function() {
   // Initialize all stats on sheet open.
-  getAttrs([ 'Will_max', 'Spirit_max', 'HP_max', 'Energy_max'], function(values) {
-    if(values.Will_max === '') calculateMaxWill();
-    if(values.Spirit_max === '') calculateMaxSpirit();
-    if(values.HP_max === '') calculateMaxHP();
-    if(values.Energy_max === '') calculateMaxEnergy();
-  });
+  calculateMaxWill();
+  calculateMaxSpirit();
+  calculateMaxHP();
+  calculateMaxEnergy();
 });
 
 on('change:will_base', function() {
