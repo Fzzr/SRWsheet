@@ -116,13 +116,14 @@
   </div>
   <span class='sheet-version-number'><input type='string' name='sheet-version-number'></span>
 </body>
-<script type='text/worker'>
 
-<!-- Use common functions to calculate derived stats. It's not strictly
-  -- necessary, but it means we don't have to update a macro inline, buried in
-  -- html, every time the derived stat formula changes. This should only be used
-  -- for rarely updated stats, like maximum values of resource pools.
-  -->
+
+<script type='text/worker'>
+/* Use common functions to calculate derived stats. It's not strictly
+ * necessary, but it means we don't have to update a macro inline, buried in
+ * html, every time the derived stat formula changes. This should only be used
+ * for rarely updated stats, like maximum values of resource pools.
+ */
 var calculateMaxWill = function() {
   getAttrs(['Will_base'], function(values) {
     setAttrs({ Will_max: values.Will_base || 0 });
@@ -148,7 +149,7 @@ var calculateMaxEnergy = function() {
 };
 
 on('sheet:opened', function() {
-  <!-- Initialize all stats if needed on sheet open. -->
+  // Initialize all stats on sheet open.
   getAttrs([ 'Will_max', 'Spirit_max', 'HP_max', 'Energy_max'], function(values) {
     if(values.Will_max === '') calculateMaxWill();
     if(values.Spirit_max === '') calculateMaxSpirit();
