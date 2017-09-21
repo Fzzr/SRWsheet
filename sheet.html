@@ -126,6 +126,18 @@
  * html, every time the derived stat formula changes. This should only be used
  * for rarely updated stats, like maximum values of resource pools.
  */
+
+const SHEET_TYPES = {
+  ACE: '0',
+  ELITE: '1',
+  MOOK: '2'
+};
+
+const TOGGLE_STATES = {
+  OFF: '0',
+  ON: '1'
+};
+
 var calculateMaxWill = function() {
   getAttrs(['Will_base'], function(values) {
     setAttrs({ Will_max: values.Will_base || 0 });
