@@ -190,4 +190,24 @@ on('change:energy_base', function() {
   calculateMaxEnergy();
 });
 
+on('change:sheet_type', function() {
+  getAttrs(['sheet_type'], function(values) {
+    if (values.sheet_type === SHEET_TYPES.ELITE) {
+      setAttrs({
+        Will_Enabled: TOGGLE_STATES.OFF,
+        Spirit_Enabled: TOGGLE_STATES.ON
+      });
+    } else if (values.sheet_type === SHEET_TYPES.MOOK) {
+      setAttrs({
+        Will_Enabled: TOGGLE_STATES.OFF,
+        Spirit_Enabled: TOGGLE_STATES.OFF
+      });
+    } else if (values.sheet_type === SHEET_TYPES.ACE) {
+      setAttrs({
+        Will_Enabled: TOGGLE_STATES.ON,
+        Spirit_Enabled: TOGGLE_STATES.ON
+      });
+    }
+  });
+});
 </script>
