@@ -41,6 +41,12 @@ input.sheet-ace-toggle:checked ~ span.sheet-ace-toggle,
 input.sheet-elite-toggle:checked ~ span.sheet-elite-toggle,
 input.sheet-mook-toggle:checked ~ span.sheet-mook-toggle { display: inline-block; }
 
+input.sheet-will-toggle { display: none; }
+input.sheet-will-toggle:not(:checked) ~ div.sheet-will-toggle { display: none; }
+
+input.sheet-spirit-toggle { display: none; }
+input.sheet-spirit-toggle:not(:checked) ~ div.sheet-spirit-toggle { display: none; }
+
 .sheet-row {
   border: 1px solid;
   margin-top: 5px;
