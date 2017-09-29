@@ -89,3 +89,47 @@ input.sheet-spirit-toggle:not(:checked) ~ div.sheet-spirit-toggle { display: non
 .sheet-version-number {
   display: none;
 }
+
+/* Point buy stat select based on:
+ * https://wiki.roll20.net/CSS_Wizardry#Fill_Radio_Buttons_to_the_Left
+ */
+
+/* Hide actual radio */
+input[type='radio'].sheet-stat-point-buy {
+  opacity: 0;
+  width: 16px;
+  height: 16px;
+  position: relative;
+  top: 5px;
+  left: 6px;
+  margin: -10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+/* Fake radio */
+input[type='radio'].sheet-stat-point-buy + span::before {
+  margin-right: 4px;
+  border: solid 1px #a8a8a8;
+  line-height: 14px;
+  text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  box-shadow: 0 0 2px #ccc;
+  background: lime;
+  content: '';
+  width: 6px;
+  height: 18px;
+  font-size: 24px;
+  transform: skewX(330deg);
+}
+
+/* Fade out unselected ticks */
+input[type='radio'].sheet-stat-point-buy:checked ~ input[type='radio'] + span::before {
+  background: #f6f6f6;
+}
+
+input.sheet-stat-point-base {
+  margin-right: 1em;
+  width: 3em;
+}
