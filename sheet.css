@@ -8,22 +8,22 @@ button[type=roll].sheet-d100-roll-button::before {
 }
 
 div.sheet-type-toggle {
-    width: 195px;
-    height: 30px;
-    position: relative;
-    display: inline;
+  width: 195px;
+  height: 30px;
+  position: relative;
+  display: inline;
 }
 
 input.sheet-type-toggle {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    z-index: 1;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  z-index: 1;
 }
 
 span.sheet-type-toggle {
-    margin: 10px 0 0 40px;
-    display: none;
+  margin: 10px 0 0 40px;
+  display: none;
 }
 
 .sheet-tab-content { display: none; }
