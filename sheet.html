@@ -84,6 +84,7 @@
     </div>
     <div class=sheet-row>
       <h3>Attributes</h3>
+      <span>Unspent Attribute Points: </span><span name='attr_unspent_attribute_points'></span>
       <div class='sheet-statistic-row'>
         <label class='sheet-attribute-label'>Base HP</label>
         <input readonly class='sheet-stat-point-base' type='text' title='@{HP_base}' name='attr_HP_base' value='1'>
@@ -397,6 +398,10 @@ const TOGGLE_STATES = {
   ON: '1'
 };
 
+const ATTRIBUTE_POINTS_PER_STEP = 10;
+
+const BASE_ATTRIBUTE_POINTS = 100;
+
 var calculateMaxWill = function() {
   getAttrs(['Will_base'], function(values) {
     setAttrs({ Will_max: values.Will_base || 0 });
@@ -421,28 +426,88 @@ var calculateMaxEnergy = function() {
   });
 };
 
+var calculateTriangularNumber = function(input) {
+  const number = Number.parseInt(input);
+  return (number * (number + 1))/2;
+};
+
+var calculateUnspentAttributePoints = function() {
+  getAttrs([
+    'Energy_base',
+    'Will_base',
+    'Spirit_base',
+    'HP_base',
+    'Armor_base',
+    'Evade_base',
+    'Skill_base',
+    'Accuracy_base',
+    'Level'
+  ], function(values) {
+    const maxPoints = BASE_ATTRIBUTE_POINTS + values.Level * ATTRIBUTE_POINTS_PER_STEP;
+
+    // Example calculation
+    const energyUsed = calculateTriangularNumber(values.Energy_base);
+    const willUsed = calculateTriangularNumber(values.Will_base);
+    const spiritUsed = calculateTriangularNumber(values.Spirit_base);
+    const hPUsed = calculateTriangularNumber(values.HP_base);
+    const armorUsed = calculateTriangularNumber(values.Armor_base);
+    const evadeUsed = calculateTriangularNumber(values.Evade_base);
+    const skillUsed = calculateTriangularNumber(values.Skill_base);
+    const accuracyUsed = calculateTriangularNumber(values.Accuracy_base);
+
+    const totalUsed = energyUsed + willUsed + spiritUsed + hPUsed + armorUsed + evadeUsed + skillUsed + accuracyUsed;
+
+    setAttrs({unspent_attribute_points: (maxPoints - totalUsed)});
+  });
+};
+
 on('sheet:opened', function() {
   // Initialize all stats on sheet open.
   calculateMaxWill();
   calculateMaxSpirit();
   calculateMaxHP();
   calculateMaxEnergy();
+  calculateUnspentAttributePoints();
 });
 
 on('change:will_base', function() {
   calculateMaxWill();
+  calculateUnspentAttributePoints();
 });
 
 on('change:spirit_base', function() {
   calculateMaxSpirit();
+  calculateUnspentAttributePoints();
 });
 
 on('change:hp_base', function() {
   calculateMaxHP();
+  calculateUnspentAttributePoints();
 });
 
 on('change:energy_base', function() {
   calculateMaxEnergy();
+  calculateUnspentAttributePoints();
+});
+
+on('change:armor_base', function() {
+  calculateUnspentAttributePoints();
+});
+
+on('change:skill_base', function() {
+  calculateUnspentAttributePoints();
+});
+
+on('change:evade_base', function() {
+  calculateUnspentAttributePoints();
+});
+
+on('change:accuracy_base', function() {
+  calculateUnspentAttributePoints();
+});
+
+on('change:level', function() {
+  calculateUnspentAttributePoints();
 });
 
 on('change:sheet_type', function() {
