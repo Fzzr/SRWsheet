@@ -124,9 +124,23 @@ input[type='radio'].sheet-stat-point-buy + span::before {
   transform: skewX(330deg);
 }
 
+/* SO RAINBOW */
+input[type='radio'].sheet-stat-point-buy.sheet-go-beyond-the-impossible + span::before {
+  background: linear-gradient(red, orange, yellow, green, blue, indigo, violet);
+  width: 8px;
+  height: 20px;
+  border: none;
+}
+
 /* Fade out unselected ticks */
 input[type='radio'].sheet-stat-point-buy:checked ~ input[type='radio'] + span::before {
   background: #f6f6f6;
+}
+
+/* Almost completely hide extra ticks */
+input[type='radio'].sheet-go-beyond-the-impossible:checked ~ input[type='radio'] + span::before {
+  background: none;
+  border: none;
 }
 
 input.sheet-stat-point-base {
