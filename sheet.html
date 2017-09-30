@@ -31,10 +31,11 @@
     <h2>Ace</h2>
   </div>
   -->
-  <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-stats-tab' value='1' title='Statistics' checked>
-  <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-spirit-tab' value='2' title='Spirits'>
-  <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-attacks-tab' value='3' title='Attacks'>
-  <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-abilities-tab' value='4' title='Abilities'>
+  <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-stats-tab' value='0' title='Statistics' checked>
+  <input type='checkbox' class='sheet-spirit-toggle' name='attr_Spirit_Enabled' value='1'>
+  <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-spirit-tab sheet-spirit-toggle' value='1' title='Spirits'>
+  <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-attacks-tab' value='2' title='Attacks'>
+  <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-abilities-tab' value='3' title='Abilities'>
   <div class='sheet-tab-content sheet-stats-tab'>
     <h2>Statistics</h2>
     <div class='sheet-row'>
@@ -404,6 +405,13 @@ const SHEET_TYPES = {
   MOOK: '2'
 };
 
+const SHEET_TABS = {
+  STATISTICS: '0',
+  SPIRITS: '1',
+  ATTACKS: '2',
+  ABILITIES: '3'
+};
+
 const TOGGLE_STATES = {
   OFF: '0',
   ON: '1'
@@ -522,7 +530,7 @@ on('change:level', function() {
 });
 
 on('change:sheet_type', function() {
-  getAttrs(['sheet_type'], function(values) {
+  getAttrs(['sheet_type', 'sheet_tab'], function(values) {
     switch (values.sheet_type) {
       case SHEET_TYPES.ELITE:
         setAttrs({
@@ -534,7 +542,9 @@ on('change:sheet_type', function() {
       case SHEET_TYPES.MOOK:
         setAttrs({
           Will_Enabled: TOGGLE_STATES.OFF,
-          Spirit_Enabled: TOGGLE_STATES.OFF
+          Spirit_Enabled: TOGGLE_STATES.OFF,
+          // If showing the spirit tab when changing to mook, change back to stats tab
+          sheet_tab: values.sheet_tab === SHEET_TABS.SPIRITS ? SHEET_TABS.STATISTICS : values.sheet_tab
         });
         break;
 
