@@ -385,7 +385,15 @@
       </div>
     </div>
   </div>
-  <div class='sheet-tab-content sheet-spirit-tab'><h2>Spirits</h2></div>
+  <div class='sheet-tab-content sheet-spirit-tab'>
+    <h2>Spirits</h2>
+    <fieldset class='repeating_spirits'>
+      <label>Name: <input type='text' name='attr_spirit_name'></label>
+      <label>Description: <textarea name='attr_spirit_description'></textarea></label>
+      <label>Cost: <input type='number' name='attr_spirit_cost'></label>
+      <label>Post Spirit in Chat<button type='roll' value='&{template:default} {{name=@{spirit_name}}} {{Cost=@{spirit_cost}}} {{Description=@{spirit_description}}}'></button></label>
+    </fieldset>
+  </div>
   <div class='sheet-tab-content sheet-attacks-tab'><h2>Attacks</h2></div>
   <div class='sheet-tab-content sheet-abilities-tab'><h2>Abilities</h2></div>
   <span class='sheet-version-number'><input type='string' name='sheet-version-number'></span>
