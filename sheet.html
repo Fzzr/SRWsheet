@@ -33,7 +33,7 @@
   -->
   <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-stats-tab' value='0' title='Statistics' checked>
   <input type='checkbox' class='sheet-spirit-toggle' name='attr_Spirit_Enabled' value='1'>
-  <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-spirit-tab sheet-spirit-toggle' value='1' title='Spirits'>
+  <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-spirit-tab sheet-spirit-toggle-target' value='1' title='Spirits'>
   <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-attacks-tab' value='2' title='Attacks'>
   <input type='radio' name='attr_sheet_tab' class='sheet-section-tab sheet-abilities-tab' value='3' title='Abilities'>
   <div class='sheet-tab-content sheet-stats-tab'>
@@ -53,7 +53,7 @@
         </div>
       </div>
       <input class='sheet-will-toggle' type='checkbox' name='attr_Will_Enabled' value='1'>
-      <div class='sheet-statistic-row sheet-will-toggle'>
+      <div class='sheet-statistic-row sheet-will-toggle-target'>
         <div class='sheet-resource-cell'>
           <label class='sheet-resource-label'>Curr. Will</label>
           <label class='sheet-resource-label'>/</label>
@@ -78,7 +78,7 @@
         </div>
       </div>
       <input class='sheet-spirit-toggle' type='checkbox' name='attr_Spirit_Enabled' value='1'>
-      <div class='sheet-statistic-row sheet-spirit-toggle'>
+      <div class='sheet-statistic-row sheet-spirit-toggle-target'>
         <div class='sheet-resource-cell'>
           <label class='sheet-resource-label'>Curr. SP</label>
           <label class='sheet-resource-label'>/</label>
@@ -129,7 +129,7 @@
         <input class='sheet-stat-point-buy' type='radio' name='attr_HP_base' value='30'><span></span>
       </div>
       <input class='sheet-will-toggle' type='checkbox' name='attr_Will_Enabled' value='1'>
-      <div class='sheet-statistic-row sheet-will-toggle'>
+      <div class='sheet-statistic-row sheet-will-toggle-target'>
         <label class='sheet-attribute-label'>Base Will</label>
         <input readonly class='sheet-stat-point-base' type='text' title='@{Will_base}' name='attr_Will_base' value='1'>
         <input class='sheet-stat-point-buy' type='radio' name='attr_Will_base' value='1' checked><span></span>
@@ -213,7 +213,7 @@
         <input class='sheet-stat-point-buy' type='radio' name='attr_Energy_base' value='30'><span></span>
       </div>
       <input class='sheet-spirit-toggle' type='checkbox' name='attr_Spirit_Enabled' value='1'>
-      <div class='sheet-statistic-row sheet-spirit-toggle'>
+      <div class='sheet-statistic-row sheet-spirit-toggle-target'>
         <label class='sheet-attribute-label'>Base Spirit</label>
         <input readonly class='sheet-stat-point-base' type='text' title='@{Spirit_base}' name='attr_Spirit_base' value='1'>
         <input class='sheet-stat-point-buy' type='radio' name='attr_Spirit_base' value='1' checked><span></span>

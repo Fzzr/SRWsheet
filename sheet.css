@@ -48,10 +48,10 @@ input.sheet-elite-toggle:checked ~ span.sheet-elite-toggle,
 input.sheet-mook-toggle:checked ~ span.sheet-mook-toggle { display: inline-block; }
 
 input[type=checkbox].sheet-will-toggle { display: none; }
-input[type=checkbox].sheet-will-toggle:not(:checked) ~ .sheet-will-toggle { display: none; }
+input[type=checkbox].sheet-will-toggle:not(:checked) ~ .sheet-will-toggle-target{ display: none; }
 
 input[type=checkbox].sheet-spirit-toggle { display: none; }
-input[type=checkbox].sheet-spirit-toggle:not(:checked) ~ .sheet-spirit-toggle { display: none; }
+input[type=checkbox].sheet-spirit-toggle:not(:checked) ~ .sheet-spirit-toggle-target { display: none; }
 
 /* Main sheet tabs based on Pokemon Tabletop United sheet. */
 input.sheet-stats-tab:checked ~ .sheet-stats-tab,
